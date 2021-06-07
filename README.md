@@ -1,13 +1,14 @@
-#UIVeri5 examples
+# UIVeri5 examples
 
 This is an example for https://openui5.org/ui5con/onair2021/
+
 The tests go to https://openui5.hana.ondemand.com/api/ and change OpenUI5 version to 1.89.0.
 
-##Getting started
+## Getting started
 
 1. Clone this repository and navigate into it
     ```
-    git clone 
+    git clone https://github.com/AnastasyaNN/uiveri5-example.git
     cd uiveri5-example
     ```
 2. Install all dependencies
@@ -20,10 +21,12 @@ The tests go to https://openui5.hana.ondemand.com/api/ and change OpenUI5 versio
     ```
     Reports are available in [report.html](tests/results/report.html).
 
-##Description
+## Description
 
 [conf.js](tests/conf.js) is configuration file.
+
 [exampleSpec.spec.js](tests/integration/exampleSpec.spec.js) is a spec file. 
+
 There are the following examples:
 * Get button by property `text`:
 ```javascript
