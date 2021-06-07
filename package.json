@@ -1,0 +1,14 @@
+{
+  "name": "uiveri5-example",
+  "version": "0.0.0",
+  "scripts": {
+    "tests": "uiveri5 ./tests/conf.js --debug"
+  },
+  "dependencies": {
+    "@ui5/uiveri5": "~1.46.0",
+    "path": "^0.12.7"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
