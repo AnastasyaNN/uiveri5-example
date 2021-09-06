@@ -57,13 +57,13 @@ describe('exampleSpec', function () {
         const versionSearchField = changeVersionDialog.element(by.control({
             controlType: "sap.m.SearchField"
         }));
-        const versionStandardListItems = changeVersionDialog.all(by.control({
-            controlType: "sap.m.StandardListItem",
+        const versionStandardTreeItems = changeVersionDialog.all(by.control({
+            controlType: "sap.m.StandardTreeItem",
             id: /-versionList-/
         }));
 
         versionSearchField.sendKeys(`1.89\n`);
-        expect(versionStandardListItems.count()).toBeGreaterThan(0);
+        expect(versionStandardTreeItems.count()).toBeGreaterThan(0);
     });
 
     it('Check current url after version change to 1.89.0', function () {
@@ -78,40 +78,40 @@ describe('exampleSpec', function () {
                 propertyPath: "/bPhoneSize"
             }
         }));
-        const versionStandardListItems = changeVersionDialog.all(by.control({
-            controlType: "sap.m.StandardListItem",
+        const versionStandardTreeItems = changeVersionDialog.all(by.control({
+            controlType: "sap.m.StandardTreeItem",
             id: /-versionList-/
         }));
 
         // it isn't efficient but I want to show that we can work with lists of objects
         // and use asControl().getProperty(<property>) to do something with property value (e.g. check it)
-        versionStandardListItems.then(standardListItems => {
-            standardListItems.forEach(standardListItem => {
-                standardListItem.asControl().getProperty("title")
+        versionStandardTreeItems.then(standardTreeItems => {
+            standardTreeItems.forEach(standardTreeItem => {
+                standardTreeItem.asControl().getProperty("title")
                     .then(version => {
                         if (version === "1.89.0") {
-                            standardListItem.click()
+                            standardTreeItem.click()
                         }
                     })
             })
         });
 
         // it's possible to click on required version easier:
-        /*const versionStandardListItem = changeVersionDialog.element(by.control({
-            controlType: "sap.m.StandardListItem",
+        /*const versionStandardTreeItem = changeVersionDialog.element(by.control({
+            controlType: "sap.m.StandardTreeItem",
             id: /-versionList-/,
             properties: {title: "1.89.0"}
         }));*/
-        // the same but look for sap.m.StandardListItem in sap.m.Dialog
-        /*const versionStandardListItem = element(by.control({
-            controlType: "sap.m.StandardListItem",
+        // the same but look for sap.m.StandardTreeItem in sap.m.Dialog
+        /*const versionStandardTreeItem = element(by.control({
+            controlType: "sap.m.StandardTreeItem",
             id: /-versionList-/,
             properties: {title: "1.89.0"},
             ancestor: {
                 controlType: "sap.m.Dialog"
             }
         }));*/
-        // versionStandardListItem.click();
+        // versionStandardTreeItem.click();
 
         browser.driver.wait(function () {
             return browser.driver.findElements(by.css('.sapMITHTextContent')).then(function (elements) {
